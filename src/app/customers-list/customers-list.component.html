@@ -1,0 +1,42 @@
+<h3>Customers List</h3>
+
+<div>
+  <span>Filter by: </span>
+
+  <label for="co">Country name</label>
+  <select id="co" [(ngModel)]="countryCode">
+    <option value="any"> All</option>
+    <option *ngFor="let country of countries" [value]="country.countryCode">
+      {{country.countryName}}
+    </option>
+  </select>
+  <br/>
+
+  <span>State</span>
+  <input type="radio" id="all" name="fav_language" value="any" [(ngModel)]="state">
+  <label for="all">All</label>
+  <input type="radio" id="valid" name="fav_language" value="valid" [(ngModel)]="state">
+  <label for="valid">valid</label>
+  <input type="radio" id="invalid" name="fav_language" value="invalid" [(ngModel)]="state">
+  <label for="invalid">Invalid</label>
+
+  <button (click)="getCustomers()">Submit</button>
+</div>
+
+<table>
+  <tr>
+    <th>Country</th>
+    <th>State</th>
+    <th>Country Code</th>
+    <th>Number</th>
+    <th>Name</th>
+  </tr>
+  <tr *ngFor="let customer of customers">
+    <td>{{customer.country}}</td>
+    <td>{{customer.state}}</td>
+    <td>{{customer.countryCode}}</td>
+    <td>{{customer.phone}}</td>
+    <td>{{customer.name}}</td>
+  </tr>
+
+</table>

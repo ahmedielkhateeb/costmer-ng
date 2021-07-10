@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  app:
+    image: 'costmer-ng'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: costmer-ng
+    ports:
+    - 4200:80
